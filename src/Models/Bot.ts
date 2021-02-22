@@ -16,7 +16,6 @@ export class Bot {
 
     static disconnect() {
         //If No Respond Disconnect From Api
-
     }
 
 }

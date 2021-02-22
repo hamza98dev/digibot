@@ -1,4 +1,3 @@
-import { MessageTransformer } from './../Transformers/MessageTransformer';
 import { isIntger, TimeDiff } from "../Helpers/helper"
 import menu from "../MenuItem"
 const backspace = '  '
@@ -13,7 +12,7 @@ export class MessageController {
         } else {
             //last question id where they Stoped
             let lAST_QUESTION_ID_EXEMPLE = 2
-            return { messages: this.GetQuestions(lAST_QUESTION_ID_EXEMPLE) }
+            return this.GetQuestions(lAST_QUESTION_ID_EXEMPLE)
 
         }
 
@@ -21,16 +20,10 @@ export class MessageController {
 
 
     static GetQuestions(id: number) {
-
         if (id) {
-            let Question = menu.filter(item => item.id === id);
+            let Question = menu.find(item => item.id === id);
             let Choice = menu.filter(item => item.parent_id === id);
-            return MessageTransformer.fromat({ Question, Choice })
+            return { Question, Choice }
         }
-
-
-
-
-
     }
 }

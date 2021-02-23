@@ -14,14 +14,14 @@ const LAST_MESSAGE_EXAMPLE = {
     created_at: "2021-02-20 11:26:42"
 }
 
-router.post('/',
-    body('message').notEmpty(),
-    body('choix').exists()
+router.post('/'
     , (req, res) => {
-        const errors = validationResult(req);
-        if (!errors.isEmpty()) {
-            return res.status(400).json({ errors: errors.array() });
-        }
+        // const errors = validationResult(req);
+        // if (!errors.isEmpty()) {
+        //     return res.status(400).json({ errors: errors.array() });
+        // }
+        console.log(req.body);
+
 
         res.json({
             messages: Bot.startConversation(LAST_MESSAGE_EXAMPLE)

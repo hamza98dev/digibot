@@ -5,8 +5,16 @@ const app = express();
 
 //Import Body Parser For Handling Request Data
 const BodyParser = require('body-parser')
+var cors = require('cors')
 
 app.use(BodyParser.json());
+
+
+
+
+//Enable CORS
+
+app.use(cors());
 
 //import Message Route
 

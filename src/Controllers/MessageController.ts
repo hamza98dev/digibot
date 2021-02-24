@@ -5,16 +5,22 @@ const backspace = '  '
 export class MessageController {
 
     static initiatMessage(LAST_MESSAGE): {} {
+        let message: any = null;
+        if (LAST_MESSAGE || TimeDiff(LAST_MESSAGE.last_message_date) > 1) {
 
-        if (TimeDiff(LAST_MESSAGE.created_at) > 1) {
-            let message = menu.filter(el => el.type === "welcome")
-            return { message }
+            message = menu.filter(el => el.type === "welcome")
         } else {
-            //last question id where they Stoped
-            let lAST_QUESTION_ID_EXEMPLE = 2
-            return this.GetQuestions(lAST_QUESTION_ID_EXEMPLE)
 
         }
+        return {}
+        // if (TimeDiff(LAST_MESSAGE.created_at) > 1) {
+        //     let message = menu.filter(el => el.type === "welcome")
+        //     return { message }
+        // } else {
+        //     //last question id where they Stoped
+        //     let lAST_QUESTION_ID_EXEMPLE = 2
+        //     return this.GetQuestions(lAST_QUESTION_ID_EXEMPLE)
+        // }
 
     }
 

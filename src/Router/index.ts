@@ -15,17 +15,18 @@ const LAST_MESSAGE_EXAMPLE = {
 }
 
 router.post('/'
-    , (req, res) => {
+    , async (req, res) => {
         // const errors = validationResult(req);
         // if (!errors.isEmpty()) {
         //     return res.status(400).json({ errors: errors.array() });
         // }
-        console.log(req.body);
 
+        let LAST_MESSAGE = await Bot.findLastMessage(req.body.CONVERSATION_ID)
+        console.log(LAST_MESSAGE);
 
-        res.json({
-            messages: Bot.startConversation(LAST_MESSAGE_EXAMPLE)
-        })
+        // res.json({
+        //     messages: Bot.startConversation(LAST_MESSAGE)
+        // })
 
 
 

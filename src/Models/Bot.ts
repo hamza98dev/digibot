@@ -1,4 +1,5 @@
 import { MessageController } from './../Controllers/MessageController';
+import { Message } from './Message';
 export class Bot {
 
 
@@ -16,6 +17,10 @@ export class Bot {
 
     static disconnect() {
         //If No Respond Disconnect From Api
+    }
+
+    static findLastMessage(id: number) {
+        return Message.findOne({ conversation_id: id }).exec();
     }
 
 }

@@ -1,0 +1,18 @@
+{
+    "id": "integer",
+    "menuText": "string",
+    "text": "string",
+    "description": "string or null",
+    "parent_id": "integer or null",
+    "haveBack": "true || false",
+    "haveBackHome": "true || false",
+    "action": [
+        {
+            "fn": "function name",
+            "params": {
+                "KEY": "VALUE OR DEFAULT VALUE",
+                "KEY2": "##message"
+            }
+        }
+    ]
+}

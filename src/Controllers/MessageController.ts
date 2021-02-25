@@ -1,26 +1,25 @@
+import { Messagetransformer } from './../Transformers/MessageTransformer';
 import { isIntger, TimeDiff } from "../Helpers/helper"
 import menu from "../MenuItem"
 const backspace = '  '
 
 export class MessageController {
 
-    static initiatMessage(LAST_MESSAGE): {} {
-        let message: any = null;
-        if (LAST_MESSAGE || TimeDiff(LAST_MESSAGE.last_message_date) > 1) {
+    static initiatMessage(LAST_MESSAGE, { CURRENT_MESSAGE, CONVERSATION_ID, BOT_PARTICIPANT_ID }): {} {
+        let message: any = '👋 Welcome to Itinarea Service How Can i Help?';
 
+        //if he had no previous message or time between them is more than 1 days
+
+        if (LAST_MESSAGE || TimeDiff(LAST_MESSAGE?.last_message_date) > 1) {
             message = menu.filter(el => el.type === "welcome")
-        } else {
+        } else if (isIntger(CURRENT_MESSAGE.body)) {
+            message = '👍 valid Choice'
 
+        } else {
+            message = '❌ Please Choice A valid Choice'
         }
-        return {}
-        // if (TimeDiff(LAST_MESSAGE.created_at) > 1) {
-        //     let message = menu.filter(el => el.type === "welcome")
-        //     return { message }
-        // } else {
-        //     //last question id where they Stoped
-        //     let lAST_QUESTION_ID_EXEMPLE = 2
-        //     return this.GetQuestions(lAST_QUESTION_ID_EXEMPLE)
-        // }
+
+        return Messagetransformer.transform(message, CONVERSATION_ID, BOT_PARTICIPANT_ID);
 
     }
 

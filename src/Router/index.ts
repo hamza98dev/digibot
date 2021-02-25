@@ -1,7 +1,9 @@
+import { Message } from './../Models/Message';
 import { Bot } from './../Models/Bot';
 const express = require('express');
 const router = express.Router();
 
+import * as faker from 'faker';
 const { body, validationResult } = require('express-validator');
 const REQUEST_MESSAGE_EXAMPLE = {
     "body": "test",
@@ -22,11 +24,9 @@ router.post('/'
         // }
 
         let LAST_MESSAGE = await Bot.findLastMessage(req.body.CONVERSATION_ID)
-        console.log(LAST_MESSAGE);
+        console.log(Bot.startConversation(LAST_MESSAGE, req.body));
 
-        // res.json({
-        //     messages: Bot.startConversation(LAST_MESSAGE)
-        // })
+        res.json(Bot.startConversation(LAST_MESSAGE, req.body))
 
 
 

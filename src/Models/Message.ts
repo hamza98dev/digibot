@@ -26,7 +26,7 @@ const messageSchema = new mongoose.Schema({
 
     last_message_date: {
         type: Date,
-        default: Date.now()
+        default: Date.now(),
     }
 
 }, { timestamps: true })

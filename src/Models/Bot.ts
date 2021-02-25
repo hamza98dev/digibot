@@ -7,10 +7,10 @@ export class Bot {
         //Connect To API
     }
 
-    static startConversation(LAST_MESSAGE) {
+    static startConversation(LAST_MESSAGE,request) {
 
 
-        return MessageController.initiatMessage(LAST_MESSAGE)
+        return MessageController.initiatMessage(LAST_MESSAGE, request)
 
     }
 

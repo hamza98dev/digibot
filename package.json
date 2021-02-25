@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node --inspect=5858 -r ts-node/register ./src/server.ts",
     "start:watch": "nodemon",
-    "build": "tsc"
+    "build": "tsc",
+    "test": "mocha -r ts-node/register 'test/**/*.ts' --timeout 10000"
   },
   "author": "",
   "license": "ISC",
@@ -17,13 +18,18 @@
     "express": "^4.17.1",
     "express-router": "0.0.1",
     "express-validator": "^6.9.2",
+    "mocha": "^8.3.0",
     "mongoose": "^5.11.18"
   },
   "devDependencies": {
+    "@types/expect": "^24.3.0",
+    "@types/mocha": "^8.2.1",
     "@types/node": "^14.14.30",
     "eslint": "^7.20.0",
     "eslint-plugin-import": "^2.22.1",
+    "faker": "^5.4.0",
     "nodemon": "^2.0.7",
+    "ts-mocha": "^8.0.0",
     "ts-node": "^9.1.1",
     "typescript": "^4.1.5"
   }

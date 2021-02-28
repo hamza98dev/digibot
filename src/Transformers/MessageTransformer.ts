@@ -7,7 +7,7 @@ export class Messagetransformer {
         return {
             body: message,
             conversation_id,
-            participant_id
+            participant_id,
         }
 
     }

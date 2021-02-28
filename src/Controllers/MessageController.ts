@@ -5,7 +5,7 @@ const backspace = '  '
 
 export class MessageController {
 
-    static initiatMessage(LAST_MESSAGE, { CURRENT_MESSAGE, CONVERSATION_ID, BOT_PARTICIPANT_ID }): {} {
+    static initiatMessage(LAST_MESSAGE, { CURRENT_MESSAGE, HASHED_CONVERSATION_ID, BOT_PARTICIPANT_ID }): {} {
         let message: any = '👋 Welcome to Itinarea Service How Can i Help?';
 
         //if he had no previous message or time between them is more than 1 days
@@ -19,7 +19,7 @@ export class MessageController {
             message = '❌ Please Choice A valid Choice'
         }
 
-        return Messagetransformer.transform(message, CONVERSATION_ID, BOT_PARTICIPANT_ID);
+        return Messagetransformer.transform(message, HASHED_CONVERSATION_ID, BOT_PARTICIPANT_ID);
 
     }
 

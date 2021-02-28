@@ -1,7 +1,9 @@
 import * as express from "express";
-
+//import * as Pusher from 'pusher-js';
+const Pusher = require('pusher-js');
 require('dotenv').config();
 const app = express();
+
 
 //Connect to MONGODB
 
@@ -15,6 +17,18 @@ mongoose.connect(process.env.MONGO_URL, {
         app.listen(process.env.PORT || '4000', () => {
             console.log('App Startin in Port ' + process.env.PORT);
 
+            let pusher = new Pusher(process.env.VUE_APP_PUSHER_KEY, {
+                cluster: process.env.VUE_APP_PUSHER_CLUSTER,
+                encrypted: process.env.VUE_APP_PUSHER_ENCRYPTED,
+
+            });
+            var channel = pusher.subscribe('chatbot');
+            channel.bind('chatbot',
+                function (data) {
+                    console.log(data);
+
+                }
+            );
         })
     }
     )
@@ -42,5 +56,3 @@ import messageRouter from './Router/index';
 //Use Message Route
 
 app.use('/messages', messageRouter)
-
-

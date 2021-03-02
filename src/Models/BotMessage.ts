@@ -10,7 +10,7 @@ const BotActions = new mongoose.Schema({
 
 const BotMessages = new mongoose.Schema({
     id: Number,
-    menuText: String,
+    menuText: { type: String, default: null },
     text: String,
     description: { type: String, default: null },
     parent_id: { type: Number, default: null },
@@ -24,9 +24,9 @@ const BotMessages = new mongoose.Schema({
 const BotSchema = new mongoose.Schema({
 
     bot_id: { type: Number, required: true },
-    massages: [BotMessages]
+    messages: [BotMessages]
 
 })
 
 
-export const botMessages = mongoose.model('botMessage', BotSchema);
+export const botMessages = mongoose.model('botmessage', BotSchema);

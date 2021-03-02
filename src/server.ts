@@ -1,5 +1,4 @@
 import * as express from "express";
-//import * as Pusher from 'pusher-js';
 const Pusher = require('pusher-js');
 require('dotenv').config();
 const app = express();
@@ -8,6 +7,7 @@ const app = express();
 //Connect to MONGODB
 
 import * as mongoose from 'mongoose';
+import { Bot } from "./Models/Bot";
 
 mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true, useUnifiedTopology: true
@@ -25,7 +25,7 @@ mongoose.connect(process.env.MONGO_URL, {
             var channel = pusher.subscribe('chatbot');
             channel.bind('chatbot',
                 function (data) {
-                    console.log(data);
+                    Bot.startConversation(data)
 
                 }
             );
@@ -52,7 +52,6 @@ app.use(cors());
 
 //import Message Route
 
-import messageRouter from './Router/index';
 //Use Message Route
-
+import messageRouter from './Router/index';
 app.use('/messages', messageRouter)

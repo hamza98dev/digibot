@@ -1,3 +1,4 @@
+import { MessageService } from './../services/message.service';
 import { MessageController } from './../Controllers/MessageController';
 import { Message } from './Message';
 export class Bot {
@@ -7,11 +8,11 @@ export class Bot {
         //Connect To API
     }
 
-    static startConversation(LAST_MESSAGE,request) {
+    static async startConversation(data) {
 
+        let message = await MessageController.initiatMessage(data?.data)
 
-        return MessageController.initiatMessage(LAST_MESSAGE, request)
-
+        MessageService.save(message);
     }
 
 

@@ -1,0 +1,204 @@
+[
+    {
+        "id": 1,
+        "menuText": "",
+        "text": "welcome to Orange",
+        "lang": "en",
+        "description": null,
+        "parent_id": null,
+        "haveBack": false,
+        "haveBackHome": false,
+        "action": []
+    },
+    {
+        "id": 2,
+        "menuText": "show your solde ",
+        "text": "your solde is",
+        "description": null,
+        "parent_id": 1,
+        "haveBack": true,
+        "haveBackHome": true,
+        "action": [
+            {
+                "fn": "callApiSold",
+                "params": {
+                    "phone": "#thirdFoneNumber",
+                    "operator": "orange"
+                }
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "menuText": "contact us",
+        "text": "Enter Message",
+        "description": null,
+        "parent_id": 1,
+        "haveBack": true,
+        "haveBackHome": true,
+        "action": [
+            {
+                "fn": "SendMail",
+                "params": {
+                    "email": "##SupportDigiEmail",
+                    "content": "##message"
+                }
+            },
+            {
+                "fn": "echo",
+                "params": {
+                    "email": "thanks for ....."
+                }
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "menuText": "change your language",
+        "text": "choose your language",
+        "description": null,
+        "parent_id": 1,
+        "haveBack": false,
+        "haveBackHome": false,
+        "action": []
+    },
+    {
+        "id": 5,
+        "menuText": "Arabic",
+        "text": null,
+        "description": null,
+        "parent_id": 4,
+        "haveBack": true,
+        "haveBackHome": false,
+        "action": [
+            {
+                "fn": "changeConversationLanguage",
+                "params": {
+                    "lang": "ar"
+                }
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "menuText": "English",
+        "text": null,
+        "description": null,
+        "parent_id": 4,
+        "haveBack": true,
+        "haveBackHome": false,
+        "action": [
+            {
+                "fn": "changeConversationLanguage",
+                "params": {
+                    "lang": "en"
+                }
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "menuText": "",
+        "text": "itinarea أهلا بك في",
+        "lang": "ar",
+        "description": null,
+        "parent_id": null,
+        "haveBack": true,
+        "haveBackHome": true,
+        "action": [
+            {
+                "fn": "function name",
+                "params": {
+                    "KEY": "VALUE OR DEFAULT VALUE",
+                    "KEY2": "##message"
+                }
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "menuText": " إظهار رصيد",
+        "text": "رصيدك هو",
+        "description": null,
+        "parent_id": 7,
+        "haveBack": true,
+        "haveBackHome": true,
+        "action": [
+            {
+                "fn": "callApiSold",
+                "params": {
+                    "phone": "#thirdFoneNumber",
+                    "operator": "orange"
+                }
+            }
+        ]
+    },
+    {
+        "id": 9,
+        "menuText": "اتصل بنا ",
+        "text": "ادخل رسالتك",
+        "description": null,
+        "parent_id": 7,
+        "haveBack": true,
+        "haveBackHome": true,
+        "action": [
+            {
+                "fn": "SendMail",
+                "params": {
+                    "email": "##SupportDigiEmail",
+                    "content": "##message"
+                }
+            },
+            {
+                "fn": "echo",
+                "params": {
+                    "email": " ..... شكرا على "
+                }
+            }
+        ]
+    },
+    {
+        "id": 10,
+        "menuText": "غير لغتك",
+        "text": "اختر لغتك",
+        "description": null,
+        "parent_id": 7,
+        "haveBack": false,
+        "haveBackHome": false,
+        "action": []
+    },
+    {
+        "id": 11,
+        "menuText": "عربي",
+        "text": null,
+        "description": null,
+        "parent_id": 10,
+        "haveBack": true,
+        "haveBackHome": false,
+        "action": [
+            {
+                "fn": "changeConversationLanguage",
+                "params": {
+                    "lang": "ar"
+                }
+            }
+        ]
+    },
+    {
+        "id": 12,
+        "menuText": "الإنجليزية",
+        "text": null,
+        "description": null,
+        "parent_id": 10,
+        "haveBack": true,
+        "haveBackHome": false,
+        "action": [
+            {
+                "fn": "changeConversationLanguage",
+                "params": {
+                    "lang": "en"
+                }
+            }
+        ]
+    }
+]
